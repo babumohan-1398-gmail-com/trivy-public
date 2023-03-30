@@ -27,7 +27,7 @@ jobs:
         run: |
           sudo docker run --rm -v "$(pwd):/src" aquasec/tfsec /src -m critical --format=json > report.json
           ls -la
-          cat report
+          cat report.json
         
 
 
