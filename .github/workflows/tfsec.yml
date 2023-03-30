@@ -24,10 +24,12 @@ jobs:
         run: ls -la
         
       - name: Linting the terraform code
-        run: sudo docker run --rm -v "$(pwd):/src" aquasec/tfsec /src -m critical --format=json > report.json
+        run: |
+          sudo docker run --rm -v "$(pwd):/src" aquasec/tfsec /src -m critical --format=json > report.json
+          ls -la
+          cat report
         
-      - name: checking the contents
-        run: ls -la && cat report
+
 
   
 
